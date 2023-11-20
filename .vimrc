@@ -38,7 +38,6 @@ nnoremap <leader>f :NERDTreeFocus<CR>
 cabbrev bterm bo term
 let g:termsize=float2nr(round(winheight(0)*0.35))
 execute "set termwinsize=" . termsize . "x0"
-tnoremap jk <C-\><C-n>
 tnoremap <silent> <c-k> <C-w>k
 tnoremap <silent> <c-j> <C-w>j
 tnoremap <silent> <c-h> <C-w>h
@@ -102,11 +101,6 @@ function! ResizeMotionKeys()
   nnoremap l :call ResizeKey("l")<CR>
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Use  Alt-[jk] to move page without moving cursor
-
-nmap <silent> j M 5<c-e>
-nmap <silent> k M 5<c-y>
-""""""""""""""""""""""""""""""""""""""""""""""""""
 set splitright
 " Use ctrl-[hjkl] to select the active split!
 nmap <silent> <c-k> :wincmd k<CR>
@@ -124,9 +118,6 @@ filetype plugin indent on
 " Security
 set modelines=0
 
-" Show line numbers
-set number
-set relativenumber
 
 " Show file stats
 set ruler
@@ -182,6 +173,20 @@ set showmatch
 set incsearch " show search results as you type
 map <leader><space> :let @/=''<cr> " clear search
 
+" Show line numbers
+set number
+set relativenumber
+
+" remaps
+tnoremap jk <C-\><C-n>
+inoremap jk <ESC>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use  Alt-[jk] to move page without moving cursor
+
+nmap <silent> j M 5<c-e>
+nmap <silent> k M 5<c-y>
+
 " Remap help ke4y.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
@@ -209,7 +214,6 @@ let g:solarized_termtrans=1
 colorscheme afterglow 
 hi Normal guibg=NONE ctermbg=NONE
 
-inoremap jk <ESC>
 set timeoutlen=400
 set noic
 
